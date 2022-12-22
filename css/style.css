@@ -1,0 +1,53 @@
+:root{
+    --textColor: #FA7070;
+    --backgroundColor: #FBF2CF;
+    --boxColor: #A1C298;
+    --italicFont: 'Playfair Display', sans-serif;
+    --basicFont: 'Raleway', sans-serif;
+    --gradientColor:linear-gradient(151deg, rgba(251,242,207,1) 0%, rgba(198,235,197,1) 85%);
+}
+
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 2rem;
+    font-family: var(--basicFont);
+    background: var(--gradientColor);
+    color: var(--textColor);
+    min-height: 100vh;
+}
+
+.h1{
+    font-size: 300%;
+    position: relative;
+    height: 50rem;
+    font-family: var(--italicFont);
+    
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.h1::before{
+    font-family: var(--italicFont);
+    content: "Your Recipe";
+    position: absolute;
+
+    left: 39.55%;
+    color: #fa707055;
+    font-size: 100%;
+    filter: blur(0.1rem);
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
