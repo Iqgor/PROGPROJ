@@ -15,6 +15,6 @@ Andere gebruikers kunnen reacties of ander feedback plaatsen. Alle posts (recept
 
 >### functionaliteit:
 > 
-> - Gebruikers kunnen aanmelden en inloggen. 
+> - Gebruikers kunnen aanmelden en inloggen.
 > - Gebruikers kunnen recepten plaatsen en aanpassen mbv een CMS. 
 > - Gebruikers kunnen makkelijk feedback sturen. 
