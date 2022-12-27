@@ -1,53 +1,285 @@
-:root{
+:root {
     --textColor: #FA7070;
-    --backgroundColor: #FBF2CF;
+    --hoverColor: #C6EBC5;
+    --backgroundColor: rgb(252, 244, 203);
     --boxColor: #A1C298;
-    --italicFont: 'Playfair Display', sans-serif;
+    --italicFont: 'Pacifico', cursive;
     --basicFont: 'Raleway', sans-serif;
-    --gradientColor:linear-gradient(151deg, rgba(251,242,207,1) 0%, rgba(198,235,197,1) 85%);
+    --gradientColor: linear-gradient(151deg, rgba(251, 242, 207, 1) 0%, rgba(198, 235, 197, 1) 85%);
 }
 
-*,*::before,*::after{
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
-body{
+body {
     font-size: 2rem;
     font-family: var(--basicFont);
-    background: var(--gradientColor);
+    background: var(--backgroundColor);
     color: var(--textColor);
     min-height: 100vh;
 }
 
-.h1{
-    font-size: 300%;
-    position: relative;
-    height: 50rem;
-    font-family: var(--italicFont);
-    
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+a {
+    text-decoration: none;
+    color: var(--textColor);
 }
 
-.h1::before{
-    font-family: var(--italicFont);
-    content: "Your Recipe";
-    position: absolute;
+.header {
+    display: flex;
+    background: rgb(49, 48, 48);
+    height: 10rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4rem 0 4rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
 
-    left: 39.55%;
-    color: #fa707055;
-    font-size: 100%;
-    filter: blur(0.1rem);
-    z-index: -1;
+.header>ul {
+    list-style: none;
+    font-size: 3rem;
+    display: flex;
+    gap: 2rem;
+    font-weight: 600;
+}
+
+.header>ul a {
+    position: relative;
+    transition: opacity 0.5s;
+}
+
+.header>ul a:hover {
+    opacity: 80%;
+}
+
+.underlineHover::before {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    right: 0;
+    width: 0;
+    height: 4px;
+    background-color: var(--hoverColor);
+    transition: width 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .underlineHover:hover::before {
+        left: 0;
+        right: auto;
+        width: 100%;
+    }
+}
+
+.header a>i {
+    font-size: 200%;
+    transition: 0.2s;
+}
+
+.header a>i:hover {
+    transform: scale(115%);
+    color: var(--hoverColor);
+}
+
+
+
+.header--div {
+    height: 45rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 6rem;
+    position: relative;
+    margin-top: 5rem;
+}
+
+.header--div > div{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+
+
+.h1 {
+    font-size: 350%;
+    text-decoration: underline;
+    font-family: var(--italicFont);
+    font-weight: bolder;
+
+
+}
+
+.h1--p {
+    font-size: 120%;
+}
+
+.header--div button{
+    width: 15%;
+    padding: 2rem;
+}
+
+.foodFig {
+    width: 20rem;
+    height: 20rem;
+    z-index: -1;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.foodFig>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.mySlides {
+    display: none;
+
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.8s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .6
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.main {
+    margin: 8rem 4rem 4rem 4rem;
+    min-height: 80vh;
+}
+
+.main--h2 {
+    font-size: 180%;
+}
+
+.recepten{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.main--art{
+    width:100%;
+    min-height: 25rem;
+    background: white;
+    border-radius:1rem ;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.main--art > img{
+    height: 100%;
+    width: 20%;
+    object-fit: cover;
+    border-radius: 1.25rem;
+}
+
+.info{
+    width: 60%;
+}
+
+.main--art > div > h2{
+    font-size: 175%;
+}
+
+.ondertitel{
+    opacity: 60%;
+}
+
+.text {
+    margin-top: 2rem;
+}
+
+.links{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.button{
+    background: var(--boxColor);
+    color: white;
+    border: none;
+    width: 50%;
+    font-family: var(--basicFont);
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 100%;
+    font-weight: 500;
+    border-radius: 1.25rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: 0.2s;
+
+}
+
+.button:hover{
+    transform: translateY(0.5rem);
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.8);
+    background:var(--hoverColor);
+    box-shadow: none;
+}
+
+.links > a{
+    color: black;
+    transition: 0.3s;
+    position: relative;
+}
+
+.links > a:hover{
+    color: inherit;
+}
+
+.footer{
+    display: flex;
+    background: rgb(49, 48, 48);
+    height: 10rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4rem 0 4rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+}
+
+.footer > div{
+    display: flex;
+    gap:4rem;
+}
+
+.footer > div a{
+    font-size: 200%;
+    transition: 0.5s;
+}
+
+.footer > div a:hover{
+    opacity: 80%;
 }
