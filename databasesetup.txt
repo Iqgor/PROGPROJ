@@ -1,0 +1,6 @@
+Databases: 
+Gebruikers (Gebruikers moeten in contact komen met de recpeten)
+\/ \/ \/
+Recepten
+
+Elk gebruiker krijgt een random ID, Elk recept is gekopeld met een het ID van de gebruiker die het recept heeft gemaakt. 
