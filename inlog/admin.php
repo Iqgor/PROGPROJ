@@ -1,3 +1,15 @@
+<?php
+
+@include 'config.php';
+
+session_start();
+
+if(!isset($_SESSION['admin_name'])){
+    header('location:index.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -5,7 +17,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,19 +28,20 @@
 </head>
 
 <body>
-    <header class="header">
-        <ul>
-            <li> <a class="underlineHover" href="index.html">Home</a> </li>
-            <li> <a class="underlineHover" href="#recepten">Recepten</a></li>
-            <li> <a class="underlineHover" href="ownpage.html">Mijn Recepten</a> </li>
-        </ul>
-        <a href="ownpage.html"><i class="fa-solid fa-user"></i></a>
-    </header>
     <main class="main">
-        <div>
-            <figure><img src="img/image.jfif" alt=""></figure>
-            Henk Sneek
+        <div class="container">
+
+            <div class="content">
+                <h3>hi, <span>admin</span></h3>
+                <h1>welcome <span><?php echo $_SESSION['admin_name'] ?></span></h1>
+                <p>this is an admin page</p>
+                <a href="../index.html" class="btn">Home</a>
+                <a href="#" class="btn">-</a>
+                <a href="uitloggen.php" class="btn">Uitloggen</a>
+            </div>
+
         </div>
+
     </main>
     <footer class="footer">
         <div>
