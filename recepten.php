@@ -20,7 +20,7 @@
 <body>
     <header class="header">
         <ul>
-            <li> <a class="underlineHover" href="index.html">Home</a> </li>
+            <li> <a class="underlineHover" href="index.php">Home</a> </li>
             <li> <a class="underlineHover" href="#recepten">Recepten</a></li>
             <li> <a class="underlineHover" href="inlog/gebruiker.php">Mijn Recepten</a> </li>
         </ul>
