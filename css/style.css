@@ -512,7 +512,18 @@ a {
     margin-top: 4rem;
 }
 
-.recensies > label{
+.review_form{
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+.review_form > button{
+    width: 10rem;
+}
+
+
+.recensies  label{
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -537,14 +548,13 @@ a {
 }
 
 .recensies > div{
-
     display: flex;
     gap: 1rem;
-
+    flex-wrap: wrap;
 }
 
 .recensies  article{
-    width: 33.3%;
+    width: 32.755%;
     height: 15rem;
     display: flex;
     gap: 1rem;
