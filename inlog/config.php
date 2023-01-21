@@ -2,7 +2,7 @@
 
 $sName = "localhost";
 $uName = "root";
-$pass = "root";
+$pass = "";
 $db_name = "progproj";
 
 try {

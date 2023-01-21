@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">    
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="../img/fork+kitchen+knife+icon-1320086368163404004.png">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/44df10ddff.js" crossorigin="anonymous"></script>
@@ -27,7 +28,7 @@
 
     <main class="main">
 
-    <div class="">
+    <div class="form_inlog-reg">
     	
     	<form class="" 
     	      action="php/index.php" 
@@ -35,28 +36,28 @@
 
     		<h4 class="">Inloggen</h4><br>
     		<?php if(isset($_GET['error'])){ ?>
-    		<div class="" role="alert">
+    		<div class="alert" role="alert">
 			  <?php echo $_GET['error']; ?>
 			</div>
 		    <?php } ?>
 
-		  <div class="">
-		    <label class="">Gebruikersnaam</label>
-		    <input type="text" 
+		  <div >
+		    <label for="gebruiker" >Gebruikersnaam</label>
+		    <input id="gebruiker" class="search" type="text" 
 		           class=""
 		           name="uname"
 		           value="<?php echo (isset($_GET['uname']))?$_GET['uname']:"" ?>">
 		  </div>
 
-		  <div class="">
-		    <label class="">Wachtwoord</label>
-		    <input type="password" 
+		  <div >
+		    <label for="ww" >Wachtwoord</label>
+		    <input id="ww" class="search" type="password" 
 		           class=""
 		           name="pass">
 		  </div>
 		  
-		  <button type="submit" class="">Inloggen</button>
-		  <a href="registreren.php" class="">Aanmelden</a>
+		  <button class="button" type="submit" class="">Inloggen</button>
+		  <a href="registreren.php">Aanmelden</a>
 
           
 		</form>

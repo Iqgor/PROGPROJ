@@ -170,6 +170,8 @@ a {
     min-height: 80vh;
 }
 
+
+
 .main--h2 {
     font-size: 180%;
 }
@@ -573,6 +575,65 @@ a {
 
     border-radius: 50%;
 
+}
+
+
+.form_inlog-reg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55vh;
+}
+
+.form_inlog-reg > form{
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    position: relative;
+}
+
+
+.form_inlog-reg div{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form_inlog-reg button{
+    margin-bottom: 1rem;
+}
+
+.form_inlog-reg div:last-of-type{
+    margin-bottom: 2rem;
+}
+
+.form_inlog-reg a {
+    color: black;
+    width: 0%;
+}
+
+.form_inlog-reg a:hover{
+    color: rgba(0, 0, 0, 0.647);
+}
+
+.alert, .alert2{
+    position: absolute;
+    top: -7.5rem;
+    border-radius: 0.5rem;
+    left: 0;
+    background: var(--boxColor);
+    padding: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.alert2{
+    top: -5rem;
 }
 
 .text {

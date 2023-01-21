@@ -26,7 +26,7 @@ if(isset($_POST['fname']) &&
 	    exit;
     }else {
 
-    	// hashing the password
+    	// hashing het wachtwoord
     	$pass = password_hash($pass, PASSWORD_DEFAULT);
 
     	$sql = "INSERT INTO gebruikers(fname, username, password) 

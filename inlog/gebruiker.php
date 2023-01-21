@@ -14,6 +14,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="icon" href="../img/fork+kitchen+knife+icon-1320086368163404004.png">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/44df10ddff.js" crossorigin="anonymous"></script>
@@ -56,7 +57,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                             hebben dan de tijd die nodig is om afhaalmaaltijden op te halen! Geen marinade nodig
 
                         </p>
-                        <a class="button" href="recept.php">Kook nu!</a>
+                        <a class="button" href="../recept.php">Kook nu!</a>
                     </div>
                 </div>
             </article>
