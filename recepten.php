@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+
+require 'functions.php';
+
+$conn = dbConnect();
+
+$receptenfalse = $conn->query("SELECT * FROM `recepeten`");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -8,8 +21,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="img/fork+kitchen+knife+icon-1320086368163404004.png">
 
     <script src="https://kit.fontawesome.com/44df10ddff.js" crossorigin="anonymous"></script>
@@ -89,54 +101,22 @@
                 </div>
             </div>
             <div class="recepten">
-                <article class="main--art">
-                    <img src="img/Pasta-met-kip-pesto-recept.jpg" alt="">
-                    <div class="info">
-                        <h3>Pasta Pesto</h3>
-                        <p class="ondertitel">Henk Willems</p>
-                        <p class="text">
-                            Een lekkere pasta met stukjes kip en een zelfgemaakte pesto.
-                            <br> 
-                            Dit recept is supper makkelijk en kost niet veel tijd. 
-                            Voor zo'n 4 personen.
-                        </p>
-                    </div>
-                    <div class="links">
-                        <a class="button" href="recept.php">Kook nu!</a>
-                        <a class="underlineHover" href="">Zet in mijn recepten.</a>
-                    </div>
-                </article>
-                <article class="main--art">
-                    <img src="img/Makkelijke-nasi-goreng.jpg" alt="">
-                    <div class="info">
-                        <h3>Lorem Ipsum</h3>
-                        <p class="ondertitel">Henk Willems</p>
-                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus
-                            provident consequatur iusto. Facilis aliquid soluta commodi maxime cum sapiente
-                            exercitationem, sint necessitatibus sed provident placeat, a reprehenderit quos possimus.
-                        </p>
-                    </div>
-                    <div class="links">
-                        <a class="button" href="recept.php">Kook nu!</a>
-                        <a class="underlineHover" href="">Zet in mijn recepten.</a>
-                    </div>
-                </article>
-                <article class="main--art">
-                    <img src="img/Makkelijke-nasi-goreng.jpg" alt="">
-                    <div class="info">
-                        <h3>Lorem Ipsum</h3>
-                        <p class="ondertitel">Henk Willems</p>
-                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus
-                            provident consequatur iusto. Facilis aliquid soluta commodi maxime cum sapiente
-                            exercitationem, sint necessitatibus sed provident placeat, a reprehenderit quos possimus.
-                        </p>
-                    </div>
-                    <div class="links">
-                        <a class="button" href="recept.php">Kook nu!</a>
-                        <a class="underlineHover" href="">Zet in mijn recepten.</a>
-                    </div>
-                </article>
-
+                <?php foreach ($receptenfalse as $recept) : ?>
+                    <article class="main--art">
+                        <img src="<?php echo "img/" . $recept["foto"] ?>" alt="">
+                        <div class="info">
+                            <h3><?php echo $recept["naam"] ?></h3>
+                            <p class="ondertitel"><?php echo $recept["naammaker"] ?></p>
+                            <p class="text">
+                                <?php echo $recept["kleininfo"] ?>
+                            </p>
+                        </div>
+                        <div class="links">
+                            <a class="button" href="recept.php?id=<?php echo $recept["id"]?>">Kook nu!</a>
+                            <a class="underlineHover" href="">Zet in mijn recepten.</a>
+                        </div>
+                    </article>
+                <?php endforeach ?>
             </div>
 
         </div>

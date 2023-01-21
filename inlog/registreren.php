@@ -45,12 +45,12 @@
 				<?php } ?>
 				<div class="">
 					<label class="">Naam</label>
-					<input type="text" class="search" name="fname" value="<?php echo (isset($_GET['fname'])) ? $_GET['fname'] : "" ?>">
+					<input autocomplete="off" type="text" class="search" name="fname" value="<?php echo (isset($_GET['fname'])) ? $_GET['fname'] : "" ?>">
 				</div>
 
 				<div class="">
 					<label class="">Gebruikersnaam</label>
-					<input class="search" type="text" name="uname" value="<?php echo (isset($_GET['uname'])) ? $_GET['uname'] : "" ?>">
+					<input autocomplete="off" class="search" type="text" name="uname" value="<?php echo (isset($_GET['uname'])) ? $_GET['uname'] : "" ?>">
 				</div>
 
 				<div class="">

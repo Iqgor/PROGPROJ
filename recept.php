@@ -50,11 +50,27 @@ if (isset($_POST['submit'])) {
 $conn = dbConnect();
 
 
-$result = $conn->query("SELECT * FROM `reacties`");
+//$result = $conn->query("SELECT * FROM `reacties`");
 
+if (!isset($_GET['id'])) {
+    echo ("de id is niet gezet");
+    exit;
+}
 
+$id = $_GET['id'];
 
+$check_int = filter_var($id, FILTER_VALIDATE_INT);
+if ($check_int === false) {
+    echo ("dit is geen getal");
+    exit;
+}
 
+$statement2 = $conn->prepare("SELECT * FROM `recepeten` WHERE id= ?");
+$params2 = [$id];
+
+$statement2 -> execute($params2);
+ 
+$place = $statement2->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -87,56 +103,40 @@ $result = $conn->query("SELECT * FROM `reacties`");
     </header>
     <main class="main">
         <article class="recept">
-            <img src="img/Pasta-met-kip-pesto-recept.jpg" alt="">
+            <img src="<?php echo "img/" . $place["foto"]?>" alt="">
             <div>
                 <div class="omschrijving">
-                    <h2>Pasta Pesto</h2>
-                    <p>Snipper het uitje en fruit even aan in een scheutje olijfolie. Voeg de blokjes kip toe en bak
-                        ongeveer 5 minuten. Kook ondertussen de pasta gaar. Voeg de (zelfgemaakte) pesto en room toe aan
-                        de kip en roer goed door. Proef nog even of er nog peper of zout bij moet.
-                    </p>
-                    <p>Laat de pestosaus een paar minuutjes zachtjes pruttelen. Voeg dan de gekookte pasta toe en schep
-                        er doorheen. Halveer de tomaatjes en roer ook door de pasta pesto en verwarm nog een minuutje
-                        mee. Serveer de pasta pesto in de pan of op een bord met een handje rucola en de geroosterde
-                        pijnboompitten.
-                    </p>
+                    <h2><?php echo $place["naam"];?></h2>
                     <p>
-                        Tip: deze pasta pesto is ook lekker met geraspte kaas. Gebruik ook eens stukjes vegetarische kip
-                        voor een vegetarische variant op de kip pesto.
+                        <?php echo $place["recept"]?>
                     </p>
+
                 </div>
                 <div class="recept-info">
-                    <p>Bereidingstijd: 30 á 40 min</p>
-                    <p>Voor 3 á 4 personen</p>
-                    <p>Hoofdgerecht</p>
+                    <p>Bereidingstijd: <?php echo $place['bereidingstijd']?> min</p>
+                    <p>Voor <?php echo $place['personen']?> personen</p>
+                    <p><?php echo $place['soort']?></p>
                     <div>
                         <h5>Benodigheden</h5>
-                        <label for="">300 gr pasta</label>
-                        <label for="">400 gr kipfilet (in stukjes)</label>
-                        <label for="">1 ui</label>
-                        <label for="">250 ml room</label>
-                        <label for="">250 gr cherry tomaatjees</label>
-                        <label for="">60g gr pijnboompitten</label>
-                        <label for="">Handje rucola</label>
-                        <label for=""> 4 eetlepels pesto</label>
+                        <p><?php echo $place["benodigheden"]?></p>
                     </div>
                 </div>
             </div>
 
         </article>
 
-        <section class="recensies">
+        <!--<section class="recensies">
             <h2>Reacties</h2>
             <div>
-                <?php foreach ($result as $product) : ?>
+                <?php //foreach ($result as $product) : ?>
                     <article>
-                        <img src="<?php echo $product['foto']; ?>" alt="">
+                        <img src="<?php //echo $product['foto']; ?>" alt="">
                         <div>
-                            <h3><?php echo $product['naam']; ?></h3>
-                            <p><?php echo $product['reactie']; ?></p>
+                            <h3><?php //echo $product['naam']; ?></h3>
+                            <p><?php //echo $product['reactie']; ?></p>
                         </div>
                     </article>
-                <?php endforeach; ?>
+                <?php // endforeach; ?>
             </div>
             <form class="review_form" method="POST" enctype="multipart/form-data">
                 <label for="review"  >Geef je reactie
@@ -146,7 +146,7 @@ $result = $conn->query("SELECT * FROM `reacties`");
             </form>
 
 
-        </section>
+        </section>-->
     </main>
 
     <footer class="footer">

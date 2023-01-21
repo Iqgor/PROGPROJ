@@ -43,7 +43,7 @@
 
 		  <div >
 		    <label for="gebruiker" >Gebruikersnaam</label>
-		    <input id="gebruiker" class="search" type="text" 
+		    <input autocomplete="off" class="search" type="text" 
 		           class=""
 		           name="uname"
 		           value="<?php echo (isset($_GET['uname']))?$_GET['uname']:"" ?>">
@@ -51,7 +51,7 @@
 
 		  <div >
 		    <label for="ww" >Wachtwoord</label>
-		    <input id="ww" class="search" type="password" 
+		    <input autocomplete="off"  class="search" type="password" 
 		           class=""
 		           name="pass">
 		  </div>

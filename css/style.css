@@ -125,9 +125,10 @@ a {
     font-size: 120%;
 }
 
-.header--div button{
+.header--div > a{
     width: 15%;
     padding: 2rem;
+    text-align: center;
 }
 
 .foodFig {
@@ -228,6 +229,11 @@ a {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+}
+
+.profile_head > div > a{
+    width: 40%;
+    text-align: center;
 }
 
 .profile_head p{
@@ -634,6 +640,78 @@ a {
 
 .alert2{
     top: -5rem;
+}
+
+.maken_form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 2rem;
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius:0.5rem;
+    gap: 1rem;
+}
+
+.maken_form > label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.maken_form input[type=text], .maken_form input[type=number]{
+    width: 45%;
+    font-size: 100%;
+}
+
+.maken_form input[type=file]::file-selector-button{
+    background: var(--boxColor);
+    color: white;
+    border: none;
+    font-family: var(--basicFont);
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 100%;
+    font-weight: 500;
+    border-radius: 1.25rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.maken_form input[type=file]::file-selector-button:hover{
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.8);
+    background:var(--hoverColor);
+    box-shadow: none;
+}
+
+.maken_form textarea{
+    resize: none;
+    height: 20rem;
+    font-family: var(--basicFont);
+    font-size: 80%;
+    padding: 0.5rem;
+    transition: 0.1s all;
+}
+
+.maken_form textarea:focus{
+    outline: 0.25rem solid var(--boxColor);
+    border: none;
+}
+
+.maken_form  select{
+    width: 45%;
+    padding: 0.25rem;
+    border: 0.2rem solid var(--boxColor);
+    transition: 0.1s all;
+}
+
+.maken_form select:focus{
+    background: rgba(0, 0, 0, 0.088);
+}
+
+.maken_form > button{
+    width:30%;
 }
 
 .text {

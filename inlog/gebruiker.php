@@ -1,8 +1,21 @@
 <?php
 
+
 session_start();
 
+
 if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
+
+
+    require '../functions.php';
+
+    $conn = dbConnect();
+
+    $id = $_SESSION['id'];
+
+    $receptenfalse = $conn->query("SELECT * FROM `recepeten` WHERE gebruikerid= $id");
+
+
 ?>
 
     <!DOCTYPE html>
@@ -23,46 +36,47 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
     </head>
 
     <body>
-    <header class="header">
-                <ul>
-                    <li> <a class="underlineHover" href="../index.php">Home</a> </li>
-                    <li> <a class="underlineHover" href="../recepten.php">Recepten</a></li>
-                    <li> <a class="underlineHover" href="gebruiker.php">Mijn Recepten</a> </li>
-                </ul>
-                <a href="index.php"><a href="uitloggen.php" class="">
-                        Uitloggen
-                    </a></i></a>
-            </header>
+        <header class="header">
+            <ul>
+                <li> <a class="underlineHover" href="../index.php">Home</a> </li>
+                <li> <a class="underlineHover" href="../recepten.php">Recepten</a></li>
+                <li> <a class="underlineHover" href="gebruiker.php">Mijn Recepten</a> </li>
+            </ul>
+            <a href="index.php"><a href="uitloggen.php" class="">
+                    Uitloggen
+                </a></i></a>
+        </header>
 
         <main class="main">
 
             <div class="profile_head">
-            <div>
-                <h2 class="profile_h2">Welkom Terug <?= $_SESSION['fname'] ?> </h2>
-                <p>Je hebt nog 2 open recepten staan.</p>
-                <button class="button">Maak recept</button>
-            </div>
-            <figure class="profile_fig"><img src="../img/image.jfif" alt=""></figure>
-
-        </div>
-        <div class="artsprof">
-            <article class="artprof">
-                <div class="artprof-inner">
-                    <div class="artprof-front">
-                        <h3>Teriyaki Kip</h3>
-                        <img src="../img/teriyaki-chicken-15-768x1152.jpg" alt="Teriyaki Kip">
-                    </div>
-                    <div class="artprof-back">
-                        <p>Dit smaakt net als je favoriete Aziatische afhaalmaaltijd, maar je kunt dit sneller klaar
-                            hebben dan de tijd die nodig is om afhaalmaaltijden op te halen! Geen marinade nodig
-
-                        </p>
-                        <a class="button" href="../recept.php">Kook nu!</a>
-                    </div>
+                <div>
+                    <h2 class="profile_h2">Welkom Terug <?= $_SESSION['fname'] ?> </h2>
+                    <a href="receptmaker.php" class="button">Maak recept</a>
                 </div>
-            </article>
+                <figure class="profile_fig"><img src="../img/image.jfif" alt=""></figure>
 
-        </div>
+            </div>
+            <div class="artsprof">
+                <?php foreach ($receptenfalse as $recept) : ?>
+                    <article class="artprof">
+                        <div class="artprof-inner">
+                            <div class="artprof-front">
+                                <h3><?php echo $recept['naam'] ?></h3>
+                                <img src="<?php echo "../img/" . $recept['foto'] ?>" alt="<?php echo $recept['naam'] ?>">
+                            </div>
+                            <div class="artprof-back">
+                                <p>
+                                    <?php echo $recept['kleininfo'] ?>
+
+                                </p>
+                                <a class="button" href="../recept.php?id=<?php echo $recept['id'] ?>">Kook nu!</a>
+                            </div>
+                        </div>
+                    </article>
+                <?php endforeach ?>
+            </div>
+
     </body>
 
 <?php } else {
@@ -80,4 +94,4 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 </footer>
 </body>
 
-</html>
+    </html>
