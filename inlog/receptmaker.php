@@ -90,7 +90,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                 <label for="">Foto
                     <input type="file" name="foto">
                 </label>
-                <label for="">Recept
+                <label for="">Werkwijze
                     <textarea name="recept"></textarea>
                 </label>
                 <label for="">Omschrijving
