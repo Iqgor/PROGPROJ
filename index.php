@@ -5,6 +5,14 @@ session_start();
 if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 }
 
+
+require 'functions.php';
+
+$conn = dbConnect();
+
+$receptenfalse = $conn->query("SELECT * FROM `recepeten`");
+
+
 ?>
 
 
@@ -29,7 +37,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
     <header class="header">
         <ul>
             <li> <a class="underlineHover" href="index.php">Home</a> </li>
-            <li> <a class="underlineHover" href="recepten.php">Recepten</a></li>
             <li> <a class="underlineHover" href="inlog/gebruiker.php">Mijn Recepten</a> </li>
         </ul>
         <a href="inlog/gebruiker.php"><i class="fa-solid fa-user"></i></a>
@@ -53,26 +60,88 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
         <a href="inlog/receptmaker.php" class="button">Plaats je recept!</a>
     </div>
     <main id="recepten" class="main">
-        <h2 class="main--h2">
-            Populaire Recepten
-        </h2>
-        <div class="recepten">
-            <article class="main--art">
-                <img src="img/Makkelijke-nasi-goreng.jpg" alt="">
-                <div class="info">
-                    <h3>Lorem Ipsum</h3>
-                    <p class="ondertitel">Henk Willems</p>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus provident consequatur iusto. Facilis aliquid soluta commodi maxime cum sapiente exercitationem, sint necessitatibus sed provident placeat, a reprehenderit quos possimus.
-                    </p>
+        <h1>
+            Recepten
+        </h1>
+        <div class="divider">
+            <div class="filter">
+                <label for="search">Search</label>
+                <input class="search" type="text" name="search" id="search">
+                <h5>Veel Gebruikt</h5>
+                <div class="checkbox-sec">
+                    <label class="checkbox">snel
+                        <input id="snel" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox">vega
+                        <input id="vega" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox">gezond
+                        <input id="gezond" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox">budget
+                        <input id="budget" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox">slank
+                        <input id="slank" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
-                <div class="links">
-                    <a class="button" href="recept.php">Kook nu!</a>
-                    <a class="underlineHover" href="">Zet in mijn recepten.</a>
+                <h5>Menugang</h5>
+                <div class="checkbox-sec">
+                    <label class="checkbox">hoofdgerecht
+                        <input id="hoofdgerecht" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox">voorgerecht
+                        <input id="voorgerecht" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox">bijgerecht
+                        <input id="bijgerecht" type="checkbox">
+                        <span class="checkmark"></span>
+                        </labeliv>
                 </div>
-            </article>
-
+                <h5>Recepten met</h5>
+                <div class="checkbox-sec">
+                    <label class="checkbox">vlees
+                        <input id="vlees" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox">gevogelte
+                        <input id="gevogelte" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox">vis
+                        <input id="vis" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="recepten">
+                <?php foreach ($receptenfalse as $recept) : ?>
+                    <article class="main--art">
+                        <img src="<?php echo "img/" . $recept["foto"] ?>" alt="">
+                        <div class="info">
+                            <h3><?php echo $recept["naam"] ?></h3>
+                            <p class="ondertitel"><?php echo $recept["naammaker"] ?></p>
+                            <p class="text">
+                                <?php echo $recept["kleininfo"] ?>
+                            </p>
+                        </div>
+                        <div class="links">
+                            <a class="button" href="recept.php?id=<?php echo $recept["id"]?>">Kook nu!</a>
+                            <a class="underlineHover" href="">Zet in mijn recepten.</a>
+                        </div>
+                    </article>
+                <?php endforeach ?>
+            </div>
 
         </div>
+
     </main>
     <footer class="footer">
         <div>
