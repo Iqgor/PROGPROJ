@@ -76,6 +76,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
         <header class="header">
             <ul>
                 <li> <a class="underlineHover" href="../index.php">Home</a> </li>
+                <li> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
                 <li> <a class="underlineHover" href="../inlog/gebruiker.php">Mijn Recepten</a> </li>
             </ul>
             <a href="gebruiker.php"><i class="fa-solid fa-user"></i></a>

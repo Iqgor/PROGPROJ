@@ -19,6 +19,7 @@
 	<header class="header">
 		<ul>
 			<li> <a class="underlineHover" href="../index.php">Home</a> </li>
+			<li> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
 			<li> <a class="underlineHover" href="gebruiker.php">Mijn Recepten</a> </li>
 		</ul>
 		<a href="index.php"><i class="fa-solid fa-user"></i></a>
