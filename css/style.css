@@ -232,17 +232,19 @@ a {
 }
 
 .profile_head > div > a{
-    width: 40%;
+    width: max-content;
     text-align: center;
 }
+
 
 .profile_head p{
     color: black;
 }
 
 .profile_h2{
-    font-family: var(--italicFont);
+    font-family: var(--basicFont);
     text-decoration: underline;
+    text-transform: uppercase;
 }
 
 .profile_fig{

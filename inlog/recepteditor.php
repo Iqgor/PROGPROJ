@@ -4,11 +4,51 @@ session_start();
 
 if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
     require '../functions.php';
+
+    $conn = dbConnect();
+
+    if(!isset($_GET['id'])) {
+        echo ("de id is niet gezet");
+        exit;
+    }
+    
+    $id = $_GET['id'];
+    
+    $check_int = filter_var($id, FILTER_VALIDATE_INT);
+    if ($check_int === false) {
+        echo ("dit is geen getal");
+        exit;
+    }
+    
+    $statement2 = $conn->prepare("SELECT * FROM `recepeten` WHERE id= ?");
+    $params2 = [$id];
+    
+    $statement2 -> execute($params2);
+     
+    $place = $statement2->fetch(PDO::FETCH_ASSOC);
     if (isset($_POST['submit'])) {
 
+        
+        $conn = dbConnect();
+
+        $naam = $_POST['naam'];
+        $recept = $_POST["recept"];
+        $kleininfo = $_POST["kleininfo"];
+        $benodigheden = $_POST["benodigheden"];
+        $bereidingstijd = $_POST["bereidingstijd"];
+        $personen = $_POST["personen"];
+        $soort = $_POST["soort"];
+
+        $sql = "UPDATE `recepeten` SET `naam` = ' {$naam} ', `recept` = ' {$recept} ', `kleininfo` = ' {$kleininfo} ', `benodigheden` = ' {$benodigheden} ', `bereidingstijd` = ' {$bereidingstijd} ', `personen` = ' {$personen} ' , `soort` = ' {$soort} ' WHERE `recepeten`.`id` = $id";
 
 
-        $foto =  $_FILES['foto']['name'];
+
+        $conn->query($sql);
+
+        header("Location: ../recept.php?id=" . $id  );
+        
+
+        /*$foto =  $_FILES['foto']['name'];
         $tempname = $_FILES['foto']['tmp_name'];
         $folder = "../img/" . $foto;
 
@@ -16,41 +56,42 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 
 
         $naam = $_POST['naam'];
-        $naammaker = $_SESSION['fname'];
-        $recept = $_POST["recept"];
+        
         $kleininfo = $_POST["kleininfo"];
         $benodigheden = $_POST["benodigheden"];
         $bereidingstijd = $_POST["bereidingstijd"];
         $personen = $_POST["personen"];
         $soort = $_POST["soort"];
-        $gebruikerid = $_SESSION['id'];
+        $id = $_GET['id'];
 
-
+        
 
         $conn = dbConnect();
 
+        $sql = "UPDATE recepeten SET foto = ?, naam = ?, recept = ?, kleininfo = ?, benodigheden = ?, bereidingstijd = ?, personen = ?, soort = ?, WHERE id = ?  ";
 
-        $sql = "INSERT INTO recepeten (foto,naam,naammaker,recept,kleininfo,benodigheden,
-        bereidingstijd,personen,soort,gebruikerid)
-                    VALUES (:foto, :naam, :naammaker, :recept, :kleininfo, :benodigheden,  
-                    :bereidingstijd, :personen, :soort, :gebruikerid);";
+        $sql = "UPDATE recepeten SET naam='Doe' WHERE id=$id";
+
+        $conn->query($sql);
 
         $statement = $conn->prepare($sql);
         $params = [
             'foto' => $foto,
             'naam' => $naam,
-            'naammaker' => $naammaker,
             'recept' => $recept,
             'kleininfo' => $kleininfo,
             'benodigheden' => $benodigheden,
             'bereidingstijd' => $bereidingstijd,
             'personen' => $personen,
             'soort' => $soort,
-            'gebruikerid' => $gebruikerid,
+            'id' => $id,
         ];
 
-        $statement->execute($params);
+        $statement->execute($params);*/
     }
+
+
+
 ?>
 
 
@@ -83,36 +124,33 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
         </header>
         <main class="main">
             <form class="maken_form" method="POST" enctype="multipart/form-data">
-                <h1>Maak hier je recept</h1>
+                <h1>Verander hier je recept</h1>
                 <label>Recept naam
-                    <input class="search" type="text" name="naam">
-                </label>
-                <label for="">Foto
-                    <input type="file" name="foto">
+                    <input class="search" value="<?php echo $place["naam"];?>" type="text" name="naam">
                 </label>
                 <label for="">Werkwijze
-                    <textarea name="recept"></textarea>
+                    <textarea name="recept"><?php echo $place["recept"];?></textarea>
                 </label>
                 <label for="">Omschrijving
-                    <textarea name="kleininfo"></textarea>
+                    <textarea name="kleininfo"><?php echo $place["kleininfo"];?></textarea>
                 </label>
                 <label for="">Benodigheden
-                    <textarea name="benodigheden"></textarea>
+                    <textarea name="benodigheden"><?php echo $place["benodigheden"];?></textarea>
                 </label>
                 <label for="">Bereidingstijd
-                    <input class="search" min="0" max="100" name="bereidingstijd" type="number">
+                    <input class="search" min="0" max="100" value="<?php echo $place["bereidingstijd"];?>" name="bereidingstijd" type="number">
                 </label>
                 <label for="">Voor hoeveel personen:
-                    <input class="search" min="0" max="10" name="personen" type="number">
+                    <input class="search" min="0" max="10" value="<?php echo $place["personen"];?>" name="personen" type="number">
                 </label>
                 <label for="">Soort gerecht
-                    <select name="soort">
+                    <select selected="<?php echo $place["soort"];?>" name="soort">
                         <option value="nagerecht">Nagerecht</option>
                         <option value="hoofgerecht">Hoofdgerecht</option>
                         <option value="voorgerecht">Voorgerecht</option>
                     </select>
                 </label>
-                <button name="submit" class="button"><span>Plaats</span></button>
+                <button name="submit" class="button"><span>Verander</span></button>
             </form>
         </main>
 

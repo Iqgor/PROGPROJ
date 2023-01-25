@@ -99,7 +99,7 @@ $place = $statement2->fetch(PDO::FETCH_ASSOC);
             <li> <a class="underlineHover" href="recepten.php">Recepten</a></li>
             <li> <a class="underlineHover" href="inlog/gebruiker.php">Mijn Recepten</a> </li>
         </ul>
-        <a href="inlog/index.php"><i class="fa-solid fa-user"></i></a>
+        <a href="inlog/gebruiker.php"><i class="fa-solid fa-user"></i></a>
     </header>
     <main class="main">
         <article class="recept">
