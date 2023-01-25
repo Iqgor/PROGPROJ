@@ -51,7 +51,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 
             <div class="profile_head">
                 <div>
-                    <h2 class="profile_h2">Welkom Terug <?= $_SESSION['fname'] ?> </h2>
+                    <h2 class="profile_h2">Welkom <?= $_SESSION['fname'] ?> </h2>
                     <a href="receptmaker.php" class="button">Maak recept</a>
                 </div>
                 <figure class="profile_fig"><img src="../img/image.jfif" alt=""></figure>
@@ -71,6 +71,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 
                                 </p>
                                 <a class="button" href="../recept.php?id=<?php echo $recept['id'] ?>">Kook nu!</a>
+                                <a href="recepteditor.php?id=<?php echo $recept['id'] ?>">verander recept</a>
                             </div>
                         </div>
                     </article>

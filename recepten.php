@@ -36,7 +36,7 @@ $receptenfalse = $conn->query("SELECT * FROM `recepeten`");
             <li> <a class="underlineHover" href="#recepten">Recepten</a></li>
             <li> <a class="underlineHover" href="inlog/gebruiker.php">Mijn Recepten</a> </li>
         </ul>
-        <a href="inlog/index.php"><i class="fa-solid fa-user"></i></a>
+        <a href="inlog/gebruiker.php"><i class="fa-solid fa-user"></i></a>
     </header>
     <main class="main">
         <h1>
