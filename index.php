@@ -65,63 +65,7 @@ $receptenfalse = $conn->query("SELECT * FROM `recepeten`");
             Recepten
         </h1>
         <div class="divider">
-            <div class="filter">
-                <label for="search">Search</label>
-                <input class="search" type="text" name="search" id="search">
-                <h5>Veel Gebruikt</h5>
-                <div class="checkbox-sec">
-                    <label class="checkbox">snel
-                        <input id="snel" type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox">vega
-                        <input id="vega" type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox">gezond
-                        <input id="gezond" type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox">budget
-                        <input id="budget" type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox">slank
-                        <input id="slank" type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-                <h5>Menugang</h5>
-                <div class="checkbox-sec">
-                    <label class="checkbox">hoofdgerecht
-                        <input id="hoofdgerecht" type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox">voorgerecht
-                        <input id="voorgerecht" type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox">bijgerecht
-                        <input id="bijgerecht" type="checkbox">
-                        <span class="checkmark"></span>
-                        </labeliv>
-                </div>
-                <h5>Recepten met</h5>
-                <div class="checkbox-sec">
-                    <label class="checkbox">vlees
-                        <input id="vlees" type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox">gevogelte
-                        <input id="gevogelte" type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox">vis
-                        <input id="vis" type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-            </div>
+            
             <div class="recepten">
                 <?php foreach ($receptenfalse as $recept) : ?>
                     <article class="main--art">
@@ -146,9 +90,6 @@ $receptenfalse = $conn->query("SELECT * FROM `recepeten`");
     </main>
     <footer class="footer">
         <div>
-            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
         </div>
         <h4 class=""><a href="https://ma-web.nl/">&#169; Media College</a></h4>
     </footer>

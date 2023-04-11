@@ -54,7 +54,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                     <h2 class="profile_h2">Welkom <?= $_SESSION['fname'] ?> </h2>
                     <a href="receptmaker.php" class="button">Maak recept</a>
                 </div>
-                <figure class="profile_fig"><img src="../img/image.jfif" alt=""></figure>
 
             </div>
             <div class="artsprof">
@@ -87,9 +86,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 </main>
 <footer class="footer">
     <div>
-        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-        <a href=""><i class="fa-brands fa-instagram"></i></a>
-        <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
     </div>
     <h4 class=""><a href="https://ma-web.nl/">&#169; Media College</a></h4>
 </footer>

@@ -37,7 +37,7 @@ a {
 .header {
     display: flex;
     background: rgb(49, 48, 48);
-    height: 10rem;
+    min-height: 10rem;
     align-items: center;
     justify-content: space-between;
     padding: 0 4rem 0 4rem;
@@ -478,6 +478,7 @@ a {
     padding: 2rem;
     gap: 2rem;
     justify-content: space-between;
+    
 }
 
 .recept > img{
@@ -497,7 +498,6 @@ a {
 
 .recept-info{
     width: 25%;
-    height: 40rem;
     display: flex;
     padding-top: 5.52rem;
     flex-direction: column;
@@ -793,4 +793,53 @@ a {
 
 .footer > div a:hover{
     opacity: 80%;
+}
+
+@media screen and (max-width: 50rem){
+    .header--div > a{
+        width: 25%;
+       
+    }
+    .artsprof{
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 37.5rem){
+    .header{
+        flex-direction: column;
+        padding-bottom: 2rem;
+        gap: 1rem;
+    }
+    .header > ul {
+        flex-direction: column;
+        align-items: center ;
+
+    }
+    .header--div > div{
+        flex-direction: column;
+    }
+    .h1--p{
+        display: none;
+    }
+
+    .main{
+        margin:2rem ;
+        margin-top: 8rem;
+        
+    }
+
+    .main--art >img{
+        display: none;
+    }
+
+    .links{
+        width: 25%;
+        
+    }
+}
+
+@media screen and (max-width:25rem) {
+
 }
