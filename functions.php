@@ -1,5 +1,6 @@
 <?php
-function dbConnect()
+class Functions{
+    function dbConnect()
 {
 
     //Laad de database gegevens uit het config bestand
@@ -19,4 +20,10 @@ function dbConnect()
         exit;
     }
 }
+}
+
+$functions = new Functions();
+
+
+
 ?>

@@ -1,7 +1,7 @@
 <?php
 require 'functions.php';
 
-$conn = dbConnect();
+$conn = $functions->dbConnect();
 
 if (!isset($_GET['id'])) {
     echo ("de id is niet gezet");

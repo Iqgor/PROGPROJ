@@ -9,11 +9,23 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 
     require '../functions.php';
 
-    $conn = dbConnect();
+    $conn = $functions->dbConnect();
 
     $id = $_SESSION['id'];
 
     $receptenfalse = $conn->query("SELECT * FROM `recepeten` WHERE gebruikerid= $id");
+
+    if (isset($_POST['verwijder'])) {
+
+        $id = $_POST['verwijder'];
+        
+        $sql = "DELETE FROM `recepeten` WHERE `recepeten`.`id` = $id";
+        
+        $conn->query($sql);
+
+        header("Location: gebruiker.php"  );
+
+    }
 
 
 ?>
@@ -71,6 +83,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                                 </p>
                                 <a class="button" href="../recept.php?id=<?php echo $recept['id'] ?>">Kook nu!</a>
                                 <a href="recepteditor.php?id=<?php echo $recept['id'] ?>">verander recept</a>
+                                <form method="POST">
+                                    
+                                    <button name="verwijder" value="<?php echo $recept['id'];?>" class="verwijder"><i class="fa-solid fa-x"></i></button>
+                                </form>
                             </div>
                         </div>
                     </article>

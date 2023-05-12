@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
         
         
         
-        $conn = dbConnect();
+        $conn = $functions->dbConnect();
         
         
         $sql = "INSERT INTO reacties (naam,reactie,foto )
@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
 
 
 
-$conn = dbConnect();
+$conn = $functions->dbConnect();
 
 
 //$result = $conn->query("SELECT * FROM `reacties`");

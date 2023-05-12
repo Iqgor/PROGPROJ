@@ -8,7 +8,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 
 require 'functions.php';
 
-$conn = dbConnect();
+$conn = $functions->dbConnect();
 
 $receptenfalse = $conn->query("SELECT * FROM `recepeten`");
 

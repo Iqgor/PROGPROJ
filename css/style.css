@@ -344,6 +344,20 @@ a {
     border-radius: 0.25rem;
 }
 
+.verwijder{
+    position: absolute;
+    top: -2.5%;
+    right: -2.5%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: rgb(205, 21, 21);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight:bold ;
+}
+
 .divider{
     margin-top: 2rem;
     display: flex;
