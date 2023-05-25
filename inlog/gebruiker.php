@@ -18,13 +18,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
     if (isset($_POST['verwijder'])) {
 
         $id = $_POST['verwijder'];
-        
+
         $sql = "DELETE FROM `recepeten` WHERE `recepeten`.`id` = $id";
-        
+
         $conn->query($sql);
 
-        header("Location: gebruiker.php"  );
-
+        header("Location: gebruiker.php");
     }
 
 
@@ -43,7 +42,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/44df10ddff.js" crossorigin="anonymous"></script>
-        <script src="../script.js" defer></script>
+        <script src="../main.js" defer></script>
         <title>YouRecipe</title>
     </head>
 
@@ -83,10 +82,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                                 </p>
                                 <a class="button" href="../recept.php?id=<?php echo $recept['id'] ?>">Kook nu!</a>
                                 <a href="recepteditor.php?id=<?php echo $recept['id'] ?>">verander recept</a>
-                                <form method="POST">
-                                    
-                                    <button name="verwijder" value="<?php echo $recept['id'];?>" class="verwijder"><i class="fa-solid fa-x"></i></button>
-                                </form>
+                                <button class="verwijder" id="verwijder"><i class="fa-solid fa-x"></i></button>
+                                <div id="overlay" class="overlay">
+                                    <h4>Wil je echt verwijderen?</h4>
+                                    <form method="POST">
+                                        <button name="verwijder" class="verwijder1"value="<?php echo $recept['id']; ?>">Ja</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </article>
