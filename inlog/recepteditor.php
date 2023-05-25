@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
     require '../functions.php';
 
-    $conn = dbConnect();
+    $conn = $functions->dbConnect();
 
     if(!isset($_GET['id'])) {
         echo ("de id is niet gezet");
@@ -27,9 +27,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
      
     $place = $statement2->fetch(PDO::FETCH_ASSOC);
     if (isset($_POST['submit'])) {
-
         
-        $conn = dbConnect();
+        
+        $conn = $functions->dbConnect();
 
         $naam = $_POST['naam'];
         $recept = $_POST["recept"];
@@ -46,48 +46,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
         $conn->query($sql);
 
         header("Location: ../recept.php?id=" . $id  );
-        
-
-        /*$foto =  $_FILES['foto']['name'];
-        $tempname = $_FILES['foto']['tmp_name'];
-        $folder = "../img/" . $foto;
-
-        move_uploaded_file($tempname, $folder);
-
-
-        $naam = $_POST['naam'];
-        
-        $kleininfo = $_POST["kleininfo"];
-        $benodigheden = $_POST["benodigheden"];
-        $bereidingstijd = $_POST["bereidingstijd"];
-        $personen = $_POST["personen"];
-        $soort = $_POST["soort"];
-        $id = $_GET['id'];
-
-        
-
-        $conn = dbConnect();
-
-        $sql = "UPDATE recepeten SET foto = ?, naam = ?, recept = ?, kleininfo = ?, benodigheden = ?, bereidingstijd = ?, personen = ?, soort = ?, WHERE id = ?  ";
-
-        $sql = "UPDATE recepeten SET naam='Doe' WHERE id=$id";
-
-        $conn->query($sql);
-
-        $statement = $conn->prepare($sql);
-        $params = [
-            'foto' => $foto,
-            'naam' => $naam,
-            'recept' => $recept,
-            'kleininfo' => $kleininfo,
-            'benodigheden' => $benodigheden,
-            'bereidingstijd' => $bereidingstijd,
-            'personen' => $personen,
-            'soort' => $soort,
-            'id' => $id,
-        ];
-
-        $statement->execute($params);*/
+    
     }
 
 

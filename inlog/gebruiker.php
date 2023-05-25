@@ -9,11 +9,22 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 
     require '../functions.php';
 
-    $conn = dbConnect();
+    $conn = $functions->dbConnect();
 
     $id = $_SESSION['id'];
 
     $receptenfalse = $conn->query("SELECT * FROM `recepeten` WHERE gebruikerid= $id");
+
+    if (isset($_POST['verwijder'])) {
+
+        $id = $_POST['verwijder'];
+
+        $sql = "DELETE FROM `recepeten` WHERE `recepeten`.`id` = $id";
+
+        $conn->query($sql);
+
+        header("Location: gebruiker.php");
+    }
 
 
 ?>
@@ -31,7 +42,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/44df10ddff.js" crossorigin="anonymous"></script>
-        <script src="../script.js" defer></script>
+        <script src="../main.js" defer></script>
         <title>YouRecipe</title>
     </head>
 
@@ -54,7 +65,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                     <h2 class="profile_h2">Welkom <?= $_SESSION['fname'] ?> </h2>
                     <a href="receptmaker.php" class="button">Maak recept</a>
                 </div>
-                <figure class="profile_fig"><img src="../img/image.jfif" alt=""></figure>
 
             </div>
             <div class="artsprof">
@@ -72,6 +82,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                                 </p>
                                 <a class="button" href="../recept.php?id=<?php echo $recept['id'] ?>">Kook nu!</a>
                                 <a href="recepteditor.php?id=<?php echo $recept['id'] ?>">verander recept</a>
+                                <button class="verwijder" id="verwijder"><i class="fa-solid fa-x"></i></button>
+                                <div id="overlay" class="overlay">
+                                    <h4>Wil je echt verwijderen?</h4>
+                                    <form method="POST">
+                                        <button name="verwijder" class="verwijder1"value="<?php echo $recept['id']; ?>">Ja</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -87,9 +104,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 </main>
 <footer class="footer">
     <div>
-        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-        <a href=""><i class="fa-brands fa-instagram"></i></a>
-        <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
     </div>
     <h4 class=""><a href="https://ma-web.nl/">&#169; Media College</a></h4>
 </footer>

@@ -42,8 +42,8 @@
 		    <?php } ?>
 
 		  <div >
-		    <label for="gebruiker" >Gebruikersnaam</label>
-		    <input autocomplete="off" class="search" type="text" 
+		    <label  for="naam" >Gebruikersnaam</label>
+		    <input id="naam" autocomplete="off" class="search" type="text" 
 		           class=""
 		           name="uname"
 		           value="<?php echo (isset($_GET['uname']))?$_GET['uname']:"" ?>">
@@ -51,7 +51,7 @@
 
 		  <div >
 		    <label for="ww" >Wachtwoord</label>
-		    <input autocomplete="off"  class="search" type="password" 
+		    <input id="ww" autocomplete="off"  class="search" type="password" 
 		           class=""
 		           name="pass">
 		  </div>
@@ -66,9 +66,6 @@
     </main>
     <footer class="footer">
         <div>
-            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
         </div>
         <h4 class=""><a href="https://ma-web.nl/">&#169; Media College</a></h4>
     </footer>

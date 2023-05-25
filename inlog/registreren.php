@@ -44,18 +44,18 @@
 					</div>
 				<?php } ?>
 				<div class="">
-					<label class="">Naam</label>
-					<input autocomplete="off" type="text" class="search" name="fname" value="<?php echo (isset($_GET['fname'])) ? $_GET['fname'] : "" ?>">
+					<label for="naam" class="">Naam</label>
+					<input id="naam" autocomplete="off" type="text" class="search" name="fname" value="<?php echo (isset($_GET['fname'])) ? $_GET['fname'] : "" ?>">
 				</div>
 
 				<div class="">
-					<label class="">Gebruikersnaam</label>
-					<input autocomplete="off" class="search" type="text" name="uname" value="<?php echo (isset($_GET['uname'])) ? $_GET['uname'] : "" ?>">
+					<label for="gnaam" class="">Gebruikersnaam</label>
+					<input id="gnaam" autocomplete="off" class="search" type="text" name="uname" value="<?php echo (isset($_GET['uname'])) ? $_GET['uname'] : "" ?>">
 				</div>
 
 				<div class="">
-					<label class="">Wachtwoord</label>
-					<input class="search" type="password" name="pass">
+					<label for="ww" class="">Wachtwoord</label>
+					<input id="ww" class="search" type="password" name="pass">
 				</div>
 
 				<button class="button" type="submit" class="">Aanmelden</button>
@@ -66,9 +66,7 @@
 	</main>
 	<footer class="footer">
 		<div>
-			<a href=""><i class="fa-brands fa-facebook-f"></i></a>
-			<a href=""><i class="fa-brands fa-instagram"></i></a>
-			<a href=""><i class="fa-brands fa-pinterest-p"></i></a>
+
 		</div>
 		<h4 class=""><a href="https://ma-web.nl/">&#169; Media College</a></h4>
 	</footer>

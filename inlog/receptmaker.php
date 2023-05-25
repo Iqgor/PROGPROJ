@@ -27,7 +27,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 
 
 
-        $conn = dbConnect();
+        $conn = $functions->dbConnect();
 
 
         $sql = "INSERT INTO recepeten (foto,naam,naammaker,recept,kleininfo,benodigheden,
@@ -50,6 +50,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
         ];
 
         $statement->execute($params);
+
+        header("Location: gebruiker.php"  );
+
     }
 ?>
 
@@ -85,28 +88,28 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
             <form class="maken_form" method="POST" enctype="multipart/form-data">
                 <h1>Maak hier je recept</h1>
                 <label>Recept naam
-                    <input class="search" type="text" name="naam">
+                    <input class="search" type="text" name="naam" required>
                 </label>
                 <label for="">Foto
-                    <input type="file" name="foto">
+                    <input type="file" name="foto" accept="image/*" required>
                 </label>
                 <label for="">Werkwijze
-                    <textarea name="recept"></textarea>
+                    <textarea name="recept" required></textarea>
                 </label>
                 <label for="">Omschrijving
-                    <textarea name="kleininfo"></textarea>
+                    <textarea name="kleininfo" required></textarea>
                 </label>
                 <label for="">Benodigheden
-                    <textarea name="benodigheden"></textarea>
+                    <textarea name="benodigheden" required></textarea>
                 </label>
                 <label for="">Bereidingstijd
-                    <input class="search" min="0" max="100" name="bereidingstijd" type="number">
+                    <input class="search" min="0" max="100" name="bereidingstijd" type="number" required>
                 </label>
                 <label for="">Voor hoeveel personen:
-                    <input class="search" min="0" max="10" name="personen" type="number">
+                    <input class="search" min="0" max="10" name="personen" type="number" required>
                 </label>
                 <label for="">Soort gerecht
-                    <select name="soort">
+                    <select name="soort" required>
                         <option value="nagerecht">Nagerecht</option>
                         <option value="hoofgerecht">Hoofdgerecht</option>
                         <option value="voorgerecht">Voorgerecht</option>
