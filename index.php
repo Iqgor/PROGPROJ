@@ -38,7 +38,7 @@ $receptenfalse = $conn->query("SELECT * FROM `recepeten`");
         <ul>
             <li> <a class="underlineHover" href="index.php">Home</a> </li>
             <li> <a class="underlineHover" href="index.php#recepten">Recepten</a> </li>
-            <li> <a class="underlineHover" href="inlog/gebruiker.php">Mijn Recepten</a> </li>
+            <li> <a class="underlineHover" href="./gebruiker/">Mijn Recepten</a> </li>
         </ul>
         <a href="inlog/gebruiker.php"><i class="fa-solid fa-user"></i></a>
     </header>
@@ -58,7 +58,7 @@ $receptenfalse = $conn->query("SELECT * FROM `recepeten`");
         </div>
 
         <p class="h1--p">Welkom bij 'Your Recipe' hier kan je je eigen recepten delen en opzoek gaan naar andere lekkere recepten van andere thuis kok's! </p>
-        <a href="inlog/receptmaker.php" class="button">Plaats je recept!</a>
+        <a href="recepten/receptmaker.php" class="button">Plaats je recept!</a>
     </div>
     <main id="recepten" class="main">
         <h1>
@@ -77,10 +77,11 @@ $receptenfalse = $conn->query("SELECT * FROM `recepeten`");
                                 <?php echo $recept["kleininfo"] ?>
                             </p>
                         </div>
-                        <div class="links">
-                            <a class="button" href="recept.php?id=<?php echo $recept["id"]?>">Kook nu!</a>
-                            <a class="underlineHover" href="">Zet in mijn recepten.</a>
-                        </div>
+                        <a class="linkOver" href="recepten/recept.php?id= <?php echo $recept["id"]?>"></a>
+                        <!-- <div class="links">
+                            <a class="button" href="recept.php?id=">Kook nu!</a>
+                            
+                        </div> -->
                     </article>
                 <?php endforeach ?>
             </div>

@@ -37,7 +37,7 @@ if(isset($_POST['uname']) &&
                  $_SESSION['id'] = $id;
                  $_SESSION['fname'] = $fname;
 
-                 header("Location: ../gebruiker.php");
+                 header("Location: ../../gebruiker/");
                  exit;
              }else {
                $em = "Verkeede gebruikersnaam of wachtwoord";
