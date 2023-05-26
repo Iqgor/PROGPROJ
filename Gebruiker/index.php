@@ -53,7 +53,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                 <li> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
                 <li> <a class="underlineHover" href="gebruiker.php">Mijn Recepten</a> </li>
             </ul>
-            <a href="index.php"><a href="uitloggen.php" class="">
+            <a href="index.php"><a href="../inlog/uitloggen.php" class="">
                     Uitloggen
                 </a></i></a>
         </header>
@@ -63,7 +63,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
             <div class="profile_head">
                 <div>
                     <h2 class="profile_h2">Welkom <?= $_SESSION['fname'] ?> </h2>
-                    <a href="receptmaker.php" class="button">Maak recept</a>
+                    <a href="../Recepten/receptmaker.php" class="button">Maak recept</a>
                 </div>
 
             </div>
@@ -80,8 +80,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                                     <?php echo $recept['kleininfo'] ?>
 
                                 </p>
-                                <a class="button" href="../recept.php?id=<?php echo $recept['id'] ?>">Kook nu!</a>
-                                <a href="recepteditor.php?id=<?php echo $recept['id'] ?>">verander recept</a>
+                                <a class="button" href="../recepten/recept.php?id=<?php echo $recept['id'] ?>">Kook nu!</a>
+                                <a href="../recepten/recepteditor.php?id=<?php echo $recept['id'] ?>">verander recept</a>
                                 <button class="verwijder" id="verwijder"><i class="fa-solid fa-x"></i></button>
                                 <div id="overlay" class="overlay">
                                     <h4>Wil je echt verwijderen?</h4>
@@ -98,7 +98,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
     </body>
 
 <?php } else {
-    header("Location: index.php");
+    header("Location: ../inlog");
     exit;
 } ?>
 </main>

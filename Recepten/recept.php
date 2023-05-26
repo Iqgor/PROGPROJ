@@ -12,7 +12,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 
 
 
-require 'functions.php';
+require '../functions.php';
 
 
 if (isset($_POST['submit'])) {
@@ -81,29 +81,29 @@ $place = $statement2->fetch(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="img/fork+kitchen+knife+icon-1320086368163404004.png">
+    <link rel="icon" href="../img/fork+kitchen+knife+icon-1320086368163404004.png">
 
     <script src="https://kit.fontawesome.com/44df10ddff.js" crossorigin="anonymous"></script>
-    <script src="script.js" defer></script>
+    <script src="../script.js" defer></script>
     <title>YouRecipe</title>
 </head>
 
 <body>
     <header class="header">
         <ul>
-            <li> <a class="underlineHover" href="index.php">Home</a> </li>
-            <li> <a class="underlineHover" href="index.php#recepten">Recepten</a> </li>
-            <li> <a class="underlineHover" href="inlog/gebruiker.php">Mijn Recepten</a> </li>
+            <li> <a class="underlineHover" href="../index.php">Home</a> </li>
+            <li> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
+            <li> <a class="underlineHover" href="../gebruiker/">Mijn Recepten</a> </li>
         </ul>
-        <a href="inlog/gebruiker.php"><i class="fa-solid fa-user"></i></a>
+        <a href="../gebruiker/"><i class="fa-solid fa-user"></i></a>
     </header>
     <main class="main">
         <article class="recept">
-            <img src="<?php echo "img/" . $place["foto"]?>" alt="">
+            <img src="<?php echo "../img/" . $place["foto"]?>" alt="">
             <div>
                 <div class="omschrijving">
                     <h2><?php echo $place["naam"];?></h2>
