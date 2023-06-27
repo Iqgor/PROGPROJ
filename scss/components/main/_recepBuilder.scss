@@ -1,0 +1,99 @@
+@use '../../abstracts/variables'; 
+
+.builder{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 2rem;
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius:0.5rem;
+    gap: 1rem;
+
+    &__label{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        &--text{
+            border: none;
+            border-bottom: 0.175rem solid variables.$hoverColor;
+            border-radius: 0.125rem;
+            padding: 0rem 1rem 0.25rem 0;
+            font-family: variables.$basicFont;
+            transition: 0.2s;
+            width: 45%;
+
+            &:focus{
+                outline: none;
+                border-bottom: 0.5rem solid variables.$hoverColor;            
+            }
+        }
+
+        &--number{
+            width: 45%;
+            font-size: 100%;
+
+        }
+    }
+
+    &__inputFile::file-selector-button{
+        background: variables.$boxColor;
+        color: white;
+        border: none;
+        font-family: variables.$basicFont;
+        padding: 1rem 2rem 1rem 2rem;
+        font-size: 100%;
+        font-weight: 500;
+        border-radius: 1.25rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover{
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.8);
+            background:variables.$hoverColor;
+            box-shadow: none; 
+        }
+    }
+
+    &__textArea{
+        resize: none;
+        height: 20rem;
+        font-family: variables.$basicFont;
+        font-size: 80%;
+        padding: 0.5rem;
+        transition: 0.1s all;
+
+        &:focus{
+            outline: 0.25rem solid variables.$boxColor;
+            border: none;
+        }
+    }
+
+    &__select{
+        width: 45%;
+        padding: 0.25rem;
+        border: 0.2rem solid variables.$boxColor;
+        transition: 0.1s all;
+
+        &::focus{
+            background: rgba(0, 0, 0, 0.088);
+        }
+    }
+
+    &__button{
+        width:30%;
+        background: variables.$boxColor;
+        color: white;
+        border: none;
+        font-family: variables.$basicFont;
+        padding: 1rem 2rem 1rem 2rem;
+        font-size: 100%;
+        font-weight: 500;
+        border-radius: 1.25rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        transition: 0.2s;
+    }
+}

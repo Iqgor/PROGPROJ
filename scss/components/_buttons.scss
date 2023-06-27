@@ -1,0 +1,92 @@
+@use "../abstracts/variables";
+
+.button{
+    background: variables.$boxColor;
+    color: white;
+    border: none;
+    font-family: variables.$basicFont;
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 100%;
+    font-weight: 500;
+    border-radius: 1.25rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: 0.2s;
+
+}
+
+.button > a{
+    color: white;
+
+}
+
+.button > a:hover{
+    color: black;
+}
+
+.button:hover{
+    transform: translateY(0.5rem);
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.8);
+    background:variables.$hoverColor;
+    box-shadow: none;
+}
+
+.verwijder{
+    position: absolute;
+    top: -2.5%;
+    right: -2.5%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: variables.$textColor;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight:bold ;
+    transition: 0.4s all;    
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+.verwijder:hover{
+    background: white;
+    color: variables.$textColor;
+    
+}
+
+.verwijder1{
+    position: relative;
+    background: none;
+    border: none;
+    font-size: 130%;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: variables.$boxColor;
+    transition: 0.4s all;
+}
+
+.verwijder1:hover{
+    cursor: pointer;
+    color: #FA7070;
+
+}
+
+.verwijder1::before {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    right: 0;
+    width: 0;
+    height: 4px;
+    background-color: variables.$hoverColor;
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    border-radius: 4rem;
+}
+@media (hover: hover) and (pointer: fine) {
+    .verwijder1:hover::before {
+        left: 0;
+        right: auto;
+        width: 100%;
+        background-color: variables.$textColor;
+    }
+}

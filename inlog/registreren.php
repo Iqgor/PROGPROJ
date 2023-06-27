@@ -17,49 +17,49 @@
 
 <body>
 	<header class="header">
-		<ul>
-			<li> <a class="underlineHover" href="../index.php">Home</a> </li>
-			<li> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
-			<li> <a class="underlineHover" href="gebruiker.php">Mijn Recepten</a> </li>
+		<ul class="header__list">
+			<li class="header__listItem"> <a class="underlineHover" href="../index.php">Home</a> </li>
+			<li class="header__listItem"> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
+			<li class="header__listItem"> <a class="underlineHover" href="../gebruiker/">Mijn Recepten</a> </li>
 		</ul>
-		<a href="index.php"><i class="fa-solid fa-user"></i></a>
+		<a href="index.php"><i class="fa-solid fa-user header__icon"></i></a>
 	</header>
 
 	<main class="main">
 
-		<div class="form_inlog-reg">
+		<div class="main__form">
 
-			<form class="" action="php/registreren.php" method="post">
+			<form class="form" action="php/registreren.php" method="post">
 
-				<h4 class="">Account aanmaken</h4><br>
+				<h4>Account aanmaken</h4><br>
 				<?php if (isset($_GET['error'])) { ?>
-					<div class="alert2" role="alert">
+					<div class="form__alert2" role="alert">
 						<?php echo $_GET['error']; ?>
 					</div>
 				<?php } ?>
 
 				<?php if (isset($_GET['success'])) { ?>
-					<div class="alert2" role="alert">
+					<div class="form__alert2" role="alert">
 						<?php echo $_GET['success']; ?>
 					</div>
 				<?php } ?>
-				<div class="">
+				<div class="form__field">
 					<label for="naam" class="">Naam</label>
-					<input id="naam" autocomplete="off" type="text" class="search" name="fname" value="<?php echo (isset($_GET['fname'])) ? $_GET['fname'] : "" ?>">
+					<input id="naam" autocomplete="off" type="text" class="form__field--input" name="fname" value="<?php echo (isset($_GET['fname'])) ? $_GET['fname'] : "" ?>">
 				</div>
 
-				<div class="">
+				<div class="form__field">
 					<label for="gnaam" class="">Gebruikersnaam</label>
-					<input id="gnaam" autocomplete="off" class="search" type="text" name="uname" value="<?php echo (isset($_GET['uname'])) ? $_GET['uname'] : "" ?>">
+					<input id="gnaam" autocomplete="off" class="form__field--input" type="text" name="uname" value="<?php echo (isset($_GET['uname'])) ? $_GET['uname'] : "" ?>">
 				</div>
 
-				<div class="">
+				<div class="form__field">
 					<label for="ww" class="">Wachtwoord</label>
-					<input id="ww" class="search" type="password" name="pass">
+					<input id="ww" class="form__field--input" type="password" name="pass">
 				</div>
 
 				<button class="button" type="submit" class="">Aanmelden</button>
-				<a href="index.php" class="">Inloggen</a>
+				<a href="index.php" class="form__link">Inloggen</a>
 			</form>
 		</div>
 

@@ -1,0 +1,66 @@
+@use '../../abstracts/variables';
+
+.header {
+    display: flex;
+    background: rgb(49, 48, 48);
+    min-height: 10rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4rem 0 4rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+    &__list{
+        list-style: none;
+        font-size: 3rem;
+        display: flex;
+        gap: 2rem;
+        font-weight: 600;
+    }
+
+    &__listItem > a{
+        position: relative;
+        transition: opacity 0.5s;
+    }
+
+    &__listItem > a:hover{
+        opacity: 80%;
+    }
+
+    &__icon{
+        font-size: 200%;
+        transition: 0.2s;
+    }
+
+    &__icon:hover{
+        transform: scale(115%);
+        color: variables.$hoverColor;
+    }
+
+    &__front{
+        height: 45rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        gap: 6rem;
+        position: relative;
+        margin-top: 5rem;
+        &--wrapper{
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+    }
+
+    &__h1{
+        font-size: 350%;
+        text-decoration: underline;
+        font-family: variables.$italicFont;
+        font-weight: bolder;
+    
+        &--p{
+            font-size: 120%;
+        }
+    }
+}

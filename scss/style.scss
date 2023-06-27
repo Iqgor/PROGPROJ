@@ -1,0 +1,20 @@
+@use 'base.scss';
+
+@use './components/header/header';
+@use './components/header/foodFig';
+
+@use './components/main/main';
+@use './components/main/receptMain';
+@use './components/main/formInlogReg'; 
+@use './components/main/recepBuilder';
+@use './components/main/receptInfo';
+@use './components/main/profile';
+
+
+@use './components/footer/footer';
+
+@use './components/buttons';
+@use './components/underlineHover';
+
+@use './abstracts/reset';
+@use './abstracts/mediaqueries.scss'

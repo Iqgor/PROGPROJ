@@ -93,30 +93,30 @@ $place = $statement2->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <header class="header">
-        <ul>
-            <li> <a class="underlineHover" href="../index.php">Home</a> </li>
-            <li> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
-            <li> <a class="underlineHover" href="../gebruiker/">Mijn Recepten</a> </li>
+<header class="header">
+        <ul class="header__list">
+            <li class="header__listItem"> <a class="underlineHover" href="../index.php">Home</a> </li>
+            <li class="header__listItem"> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
+            <li class="header__listItem"> <a class="underlineHover" href="../gebruiker/">Mijn Recepten</a> </li>
         </ul>
-        <a href="../gebruiker/"><i class="fa-solid fa-user"></i></a>
+        <a href="../Gebruiker/"><i class="fa-solid fa-user header__icon"></i></a>
     </header>
     <main class="main">
         <article class="recept">
-            <img src="<?php echo "../img/" . $place["foto"]?>" alt="">
-            <div>
-                <div class="omschrijving">
+            <img class="recept__img" src="<?php echo "../img/" . $place["foto"]?>" alt="">
+            <div class="recept__divider">
+                <div class="recept__omschrijving">
                     <h2><?php echo $place["naam"];?></h2>
                     <p>
                         <?php echo $place["recept"]?>
                     </p>
 
                 </div>
-                <div class="recept-info">
-                    <p>Bereidingstijd: <?php echo $place['bereidingstijd']?> min</p>
-                    <p>Voor <?php echo $place['personen']?> personen</p>
-                    <p><?php echo $place['soort']?></p>
-                    <div>
+                <div class="recept__info">
+                    <p class="recept__info--text">Bereidingstijd: <?php echo $place['bereidingstijd']?> min</p>
+                    <p class="recept__info--text">Voor <?php echo $place['personen']?> personen</p>
+                    <p class="recept__info--text"><?php echo $place['soort']?></p>
+                    <div class="recept__info--benodigheden">
                         <h5>Benodigheden</h5>
                         <p><?php echo $place["benodigheden"]?></p>
                     </div>
@@ -151,9 +151,6 @@ $place = $statement2->fetch(PDO::FETCH_ASSOC);
 
     <footer class="footer">
         <div>
-            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
         </div>
         <h4 class=""><a href="https://ma-web.nl/">&#169; Media College</a></h4>
     </footer>

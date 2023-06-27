@@ -42,51 +42,48 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/44df10ddff.js" crossorigin="anonymous"></script>
-        <script src="../main.js" defer></script>
+        <script src="../js/main.js" defer></script>
         <title>YouRecipe</title>
     </head>
 
     <body>
         <header class="header">
-            <ul>
-                <li> <a class="underlineHover" href="../index.php">Home</a> </li>
-                <li> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
-                <li> <a class="underlineHover" href="gebruiker.php">Mijn Recepten</a> </li>
-            </ul>
-            <a href="index.php"><a href="../inlog/uitloggen.php" class="">
-                    Uitloggen
-                </a></i></a>
+        <ul class="header__list">
+            <li class="header__listItem"> <a class="underlineHover" href="../index.php">Home</a> </li>
+            <li class="header__listItem"> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
+            <li class="header__listItem"> <a class="underlineHover" href="gebruiker/">Mijn Recepten</a> </li>
+        </ul>
+            <a href="../inlog/uitloggen.php">Uitloggen</a>
         </header>
 
         <main class="main">
-
-            <div class="profile_head">
-                <div>
-                    <h2 class="profile_h2">Welkom <?= $_SESSION['fname'] ?> </h2>
-                    <a href="../Recepten/receptmaker.php" class="button">Maak recept</a>
+            <div class="profileHead">
+                <div class="profileHead__div">
+                    <h2 class="profileHead__div--h2">Welkom <?= $_SESSION['fname'] ?> </h2>
+                    <a class="profileHead__div--link button" href="../Recepten/receptmaker.php" >Maak recept</a>
                 </div>
 
             </div>
-            <div class="artsprof">
+            <div class="profileRecipes">
                 <?php foreach ($receptenfalse as $recept) : ?>
-                    <article class="artprof">
-                        <div class="artprof-inner">
-                            <div class="artprof-front">
+                    <article class="profileRecipe">
+                        <div class="profileRecipe__inner">
+                            <div class="profileRecipe__front">
                                 <h3><?php echo $recept['naam'] ?></h3>
-                                <img src="<?php echo "../img/" . $recept['foto'] ?>" alt="<?php echo $recept['naam'] ?>">
+                                <img class="profileRecipe__front--img" src="<?php echo "../img/" . $recept['foto'] ?>" alt="<?php echo $recept['naam'] ?>">
                             </div>
-                            <div class="artprof-back">
-                                <p>
+                            <div class="profileRecipe__back">
+                                <p class="profileRecipe__back--text">
                                     <?php echo $recept['kleininfo'] ?>
 
                                 </p>
-                                <a class="button" href="../recepten/recept.php?id=<?php echo $recept['id'] ?>">Kook nu!</a>
-                                <a href="../recepten/recepteditor.php?id=<?php echo $recept['id'] ?>">verander recept</a>
+                                <a class="profileRecipe__back--link button"  href="../recepten/recept.php?id=<?php echo $recept['id'] ?>">Kook nu!</a>
+                                <a class="profileRecipe__back--link" href="../recepten/recepteditor.php?id=<?php echo $recept['id'] ?>">verander recept</a>
                                 <button class="verwijder" id="verwijder"><i class="fa-solid fa-x"></i></button>
-                                <div id="overlay" class="overlay">
+                                <div id="overlay" class="profileRecipe__back--overlay">
                                     <h4>Wil je echt verwijderen?</h4>
                                     <form method="POST">
-                                        <button name="verwijder" class="verwijder1"value="<?php echo $recept['id']; ?>">Ja</button>
+                                        <button name="verwijder" class="verwijder1" value="<?php echo $recept['id']; ?>">Ja</button>
                                     </form>
                                 </div>
                             </div>

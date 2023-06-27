@@ -73,43 +73,43 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 
     <body>
 
-        <header class="header">
-            <ul>
-                <li> <a class="underlineHover" href="../index.php">Home</a> </li>
-                <li> <a class="underlineHover" href="../indxe.php#recpeten">Recepten</a></li>
-                <li> <a class="underlineHover" href="../gebruiker/">Mijn Recepten</a> </li>
+    <header class="header">
+            <ul class="header__list">
+                <li class="header__listItem"> <a class="underlineHover" href="../index.php">Home</a> </li>
+                <li class="header__listItem"> <a class="underlineHover" href="../index.php#recepten">Recepten</a> </li>
+                <li class="header__listItem"> <a class="underlineHover" href="../gebruiker/">Mijn Recepten</a> </li>
             </ul>
-            <a href="../gebruiker/"><i class="fa-solid fa-user"></i></a>
+            <a href="../gebruiker/"><i class="fa-solid fa-user header__icon"></i></a>
         </header>
         <main class="main">
-            <form class="maken_form" method="POST" enctype="multipart/form-data">
+            <form class="builder" method="POST" enctype="multipart/form-data">
                 <h1>Verander hier je recept</h1>
-                <label>Recept naam
-                    <input class="search" value="<?php echo $place["naam"];?>" type="text" name="naam">
+                <label class="builder__label">Recept naam
+                    <input class="builder__label--text" value="<?php echo $place["naam"];?>" type="text" name="naam">
                 </label>
-                <label for="">Werkwijze
-                    <textarea name="recept"><?php echo $place["recept"];?></textarea>
+                <label class="builder__label">Werkwijze
+                    <textarea class="builder__textArea" name="recept"><?php echo $place["recept"];?></textarea>
                 </label>
-                <label for="">Omschrijving
-                    <textarea name="kleininfo"><?php echo $place["kleininfo"];?></textarea>
+                <label class="builder__label">Omschrijving
+                    <textarea class="builder__textArea" name="kleininfo"><?php echo $place["kleininfo"];?></textarea>
                 </label>
-                <label for="">Benodigheden
-                    <textarea name="benodigheden"><?php echo $place["benodigheden"];?></textarea>
+                <label class="builder__label">Benodigheden
+                    <textarea class="builder__textArea" name="benodigheden"><?php echo $place["benodigheden"];?></textarea>
                 </label>
-                <label for="">Bereidingstijd
-                    <input class="search" min="0" max="100" value="<?php echo $place["bereidingstijd"];?>" name="bereidingstijd" type="number">
+                <label class="builder__label">Bereidingstijd
+                    <input class="builder__label--text builder__label--number" min="0" max="100" value="<?php echo $place["bereidingstijd"];?>" name="bereidingstijd" type="number">
                 </label>
-                <label for="">Voor hoeveel personen:
-                    <input class="search" min="0" max="10" value="<?php echo $place["personen"];?>" name="personen" type="number">
+                <label class="builder__label">Voor hoeveel personen:
+                    <input class="builder__label--text builder__label--number" min="0" max="10" value="<?php echo $place["personen"];?>" name="personen" type="number">
                 </label>
-                <label for="">Soort gerecht
-                    <select selected="<?php echo $place["soort"];?>" name="soort">
+                <label class="builder__label">Soort gerecht
+                    <select class="builder__select" selected="<?php echo $place["soort"];?>" name="soort">
                         <option value="nagerecht">Nagerecht</option>
                         <option value="hoofgerecht">Hoofdgerecht</option>
                         <option value="voorgerecht">Voorgerecht</option>
                     </select>
                 </label>
-                <button name="submit" class="button"><span>Verander</span></button>
+                <button name="submit" class="builder__button"><span>Verander</span></button>
             </form>
         </main>
 
@@ -119,9 +119,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
 } ?>
     <footer class="footer">
         <div>
-            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
         </div>
         <h4 class=""><a href="https://ma-web.nl/">&#169; Media College</a></h4>
     </footer>

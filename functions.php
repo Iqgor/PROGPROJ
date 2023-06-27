@@ -23,7 +23,3 @@ class Functions{
 }
 
 $functions = new Functions();
-
-
-
-?>
